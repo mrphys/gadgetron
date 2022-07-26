@@ -46,7 +46,6 @@ namespace Gadgetron::Server::Connection::Nodes {
 
             auto output = output_stream.get();
 
-            
             auto [major, minor, patch] = parse_version(output);
 
             if ((major == 3) && (minor > 5))
@@ -63,13 +62,16 @@ namespace Gadgetron::Server::Connection::Nodes {
     };
 
     std::string get_python_executable()  {
-        auto possible_names = std::vector<std::string>{"python", "python3"};
-        for (auto &name : possible_names) {
-            if (is_valid_python3(name)) {
-                return name;
-            }
-        }
-        throw std::runtime_error("Could not find valid python installation");
+        // auto possible_names = std::vector<std::string>{"python", "python3"};
+        // for (auto &name : possible_names) {
+        //     if (is_valid_python3(name)) {
+        //         return name;
+        //     }
+        // }
+        // throw std::runtime_error("Could not find valid python installation");
+        //
+        // Problem with this function failing - assume python is installed and called python. RB
+        return "python";
     }
 
     }
